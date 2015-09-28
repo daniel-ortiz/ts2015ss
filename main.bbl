@@ -1,0 +1,65 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{anyt}{anyt}
+    \entry{qpi-intel}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=42af28f239d9ce2a4d0f9a032741150e}{Corporation}{C\bibinitperiod}{Intel}{I\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Intel Corporation}%
+      }
+      \strng{namehash}{42af28f239d9ce2a4d0f9a032741150e}
+      \strng{fullhash}{42af28f239d9ce2a4d0f9a032741150e}
+      \field{labelalpha}{Cor09}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://www.intel.de/content/dam/doc/white-paper/quick-path-interconnect-introduction-paper.pdf}}
+      \field{month}{01}
+      \field{title}{An introduction to the Intel QuickPath Interconnect.}
+      \field{year}{2009}
+    \endentry
+    \entry{pcarch-carbo}{online}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=9df3445643c2e50444e0217adeaf59d4}{Karbo}{K\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=686f565e5ac2f7044e07fa824228aa02}{Aps}{A\bibinitperiod}{Eli}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{16b413db533e1bd0ea6ca837d15414a3}
+      \strng{fullhash}{16b413db533e1bd0ea6ca837d15414a3}
+      \field{labelalpha}{KA}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Electronic Book}
+      \field{title}{PC Architecture}
+      \verb{url}
+      \verb %5Curl%7Bhttp://www.karbosguide.com/books/pcarchitecture/chapter00.htm%7D
+      \endverb
+    \endentry
+  \endsortlist
+  \missing{fig:pcarch-carbo}
+  \missing{fig:numa1}
+  \missing{fig:uma1}
+\endrefsection
+\endinput
+

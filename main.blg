@@ -1,0 +1,19 @@
+[1] Config.pm:324> INFO - This is Biber 2.1
+[1] Config.pm:327> INFO - Logfile is 'main.blg'
+[87] biber:276> INFO - === Mo Sep 28, 2015, 13:55:06
+[88] Biber.pm:333> INFO - Reading 'main.bcf'
+[315] Biber.pm:645> INFO - Found 5 citekeys in bib section 0
+[362] Biber.pm:2977> INFO - Processing section 0
+[401] Biber.pm:3115> INFO - Looking for bibtex format file 'bibliography/literature.bib' for section 0
+[404] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[408] bibtex.pm:895> INFO - Found BibTeX data source 'bibliography/literature.bib'
+[462] Utils.pm:146> WARN - I didn't find a database entry for 'fig:pcarch-carbo' (section 0)
+[462] Utils.pm:146> WARN - I didn't find a database entry for 'fig:uma1' (section 0)
+[463] Utils.pm:146> WARN - I didn't find a database entry for 'fig:numa1' (section 0)
+[558] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[559] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[559] Biber.pm:2854> INFO - Sorting list 'anyt' of type 'entry' with scheme 'anyt' and locale 'en-US'
+[560] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-US'
+[566] bbl.pm:505> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[568] bbl.pm:596> INFO - Output to main.bbl
+[568] Biber.pm:106> INFO - WARNINGS: 3
