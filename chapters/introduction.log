@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=latex 2015.9.26)  28 SEP 2015 04:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=latex 2015.9.26)  3 OCT 2015 14:05
 entering extended mode
 **introduction.tex
 (introduction.tex
@@ -687,7 +687,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 1--4
-[]
+[][]
  []
 
 
@@ -1285,7 +1285,7 @@ Missing character: There is no P in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 5--6
-[]
+[][]
  []
 
 ! Undefined control sequence.
@@ -1551,7 +1551,7 @@ Missing character: There is no y in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 7--9
-[]
+[][]
  []
 
 
@@ -1632,7 +1632,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 10--11
-[]
+[][]
  []
 
 
@@ -1649,7 +1649,7 @@ If that doesn't work, type  X <return>  to quit.
 
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 12--12
-[] 
+[][] 
  []
 
 Missing character: There is no I in font nullfont!
@@ -2854,23 +2854,6 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no [ in font nullfont!
-\citation{pcarch-carbo}
-! Undefined control sequence.
-<write> ...: Citation `\@citeb ' on page \thepage 
-                                                  \space undefined\on@line .
-l.23 ...fic. Image Karbosguide \cite{pcarch-carbo}
-                                                  . }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Citation `pcarch-carbo' on page  undefined on input line 23.
-
-Missing character: There is no ] in font nullfont!
 Missing character: There is no . in font nullfont!
 
 ! LaTeX Error: \begin{document} ended by \end{figure}.
@@ -2887,12 +2870,7 @@ or  <return>  to continue without it.
 
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 19--26
-[]
- []
-
-
-Overfull \hbox (5.43053pt too wide) in paragraph at lines 19--26
-[]
+[][]
  []
 
 Missing character: There is no I in font nullfont!
@@ -3419,12 +3397,10 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no [ in font nullfont!
-\citation{fig:pcarch-carbo}
 ! Undefined control sequence.
-<write> ...: Citation `\@citeb ' on page \thepage 
+<write> ...ference `fig:bus-abs' on page \thepage 
                                                   \space undefined\on@line .
-l.27 ...is given in figure \cite{fig:pcarch-carbo}
+l.27 ...ayout is given in figure \ref{fig:bus-abs}
                                                   .
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3433,17 +3409,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation `fig:pcarch-carbo' on page  undefined on input line 27.
+LaTeX Warning: Reference `fig:bus-abs' on page  undefined on input line 27.
 
-Missing character: There is no ] in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 27--28
-[]
+[][]
  []
 
 
-Overfull \hbox (5.43053pt too wide) in paragraph at lines 27--28
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 27--28
 [] 
  []
 
@@ -4163,7 +4138,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 29--30
-[]
+[][]
  []
 
 ! Undefined control sequence.
@@ -4198,7 +4173,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 31--32
-[]
+[][]
  []
 
 
@@ -5001,7 +4976,7 @@ Missing character: There is no y in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 40--41
-[]
+[][]
  []
 
 Missing character: There is no I in font nullfont!
@@ -5182,12 +5157,10 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no [ in font nullfont!
-\citation{fig:uma1}
 ! Undefined control sequence.
-<write> ...: Citation `\@citeb ' on page \thepage 
+<write> ... Reference `fig:uma1' on page \thepage 
                                                   \space undefined\on@line .
-l.42 ...ge) as shown in the Figure \cite{fig:uma1}
+l.42 ...dge) as shown in the Figure \ref{fig:uma1}
                                                   . This shared bus topology...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5196,9 +5169,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation `fig:uma1' on page  undefined on input line 42.
+LaTeX Warning: Reference `fig:uma1' on page  undefined on input line 42.
 
-Missing character: There is no ] in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no T in font nullfont!
 Missing character: There is no h in font nullfont!
@@ -5594,11 +5566,11 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 42--43
-[]
+[][]
  []
 
 
-Overfull \hbox (5.43053pt too wide) in paragraph at lines 42--43
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 42--43
 []
  []
 
@@ -5624,7 +5596,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 44--45
-[]
+[][]
  []
 
 
@@ -6455,12 +6427,10 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no [ in font nullfont!
-\citation{fig:numa1}
 ! Undefined control sequence.
-<write> ...: Citation `\@citeb ' on page \thepage 
+<write> ...Reference `fig:numa1' on page \thepage 
                                                   \space undefined\on@line .
-l.53 ...port technologies. Figure \cite{fig:numa1}
+l.53 ...sport technologies. Figure \ref{fig:numa1}
                                                    shows the representation ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6469,9 +6439,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation `fig:numa1' on page  undefined on input line 53.
+LaTeX Warning: Reference `fig:numa1' on page  undefined on input line 53.
 
-Missing character: There is no ] in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -6537,11 +6506,11 @@ Missing character: There is no I in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 53--54
-[]
+[][]
  []
 
 
-Overfull \hbox (5.43053pt too wide) in paragraph at lines 53--54
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 53--54
 []
  []
 
@@ -7120,7 +7089,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 55--56
-[]
+[][]
  []
 
 ! Undefined control sequence.
@@ -7164,7 +7133,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 57--58
-[]
+[][]
  []
 
 Missing character: There is no M in font nullfont!
@@ -7660,7 +7629,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 59--60
-[]
+[][]
  []
 
 Missing character: There is no I in font nullfont!
@@ -7908,7 +7877,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 61--62
-[]
+[][]
  []
 
 ! Undefined control sequence.
@@ -8378,7 +8347,7 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 63--65
-[]
+[][]
  []
 
 Missing character: There is no T in font nullfont!
@@ -8807,11 +8776,11 @@ Missing character: There is no . in font nullfont!
 
  
 Here is how much of TeX's memory you used:
- 19 strings out of 493674
- 247 string characters out of 3141550
+ 18 strings out of 493674
+ 228 string characters out of 3141550
  56452 words of memory out of 3000000
- 3466 multiletter control sequences out of 15000+200000
+ 3465 multiletter control sequences out of 15000+200000
  3948 words of font info for 15 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 20i,2n,26p,885b,120s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 19i,2n,21p,885b,89s stack positions out of 5000i,500n,10000p,200000b,50000s
 No pages of output.

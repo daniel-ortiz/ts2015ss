@@ -2,9 +2,9 @@
 \defcounter {refsection}{0}\relax 
 \select@language {american}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgments}{iii}{Doc-Start}
+\contentsline {chapter}{Acknowledgments}{iii}{figure.caption.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Abstract}{iv}{chapter*.1}
+\contentsline {chapter}{\nonumberline Abstract}{iv}{chapter*.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Theorethical Foundations}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -22,8 +22,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4.1}Instruction sampling}{5}{subsection.1.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Figures}{7}{chapter*.6}
+\contentsline {chapter}{\nonumberline List of Figures}{7}{chapter*.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Tables}{8}{chapter*.7}
+\contentsline {chapter}{\nonumberline List of Tables}{8}{chapter*.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{9}{chapter*.8}
+\contentsline {chapter}{\nonumberline Bibliography}{9}{chapter*.12}

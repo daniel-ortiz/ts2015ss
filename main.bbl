@@ -19,18 +19,18 @@
 
 \refsection{0}
   \sortlist{anyt}{anyt}
-    \entry{qpi-intel}{online}{}
+    \entry{qpi-intel}{misc}{}
       \name{author}{1}{}{%
-        {{uniquename=0,hash=42af28f239d9ce2a4d0f9a032741150e}{Corporation}{C\bibinitperiod}{Intel}{I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d01f15e44e778d65f4aef36734633ce6}{{Intel\bibnamedelimb Corporation}}{I\bibinitperiod}{}{}{}{}{}{}}%
       }
       \list{organization}{1}{%
         {Intel Corporation}%
       }
-      \strng{namehash}{42af28f239d9ce2a4d0f9a032741150e}
-      \strng{fullhash}{42af28f239d9ce2a4d0f9a032741150e}
-      \field{labelalpha}{Cor09}
-      \field{sortinit}{C}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \strng{namehash}{d01f15e44e778d65f4aef36734633ce6}
+      \strng{fullhash}{d01f15e44e778d65f4aef36734633ce6}
+      \field{labelalpha}{Int09}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.intel.de/content/dam/doc/white-paper/quick-path-interconnect-introduction-paper.pdf}}
@@ -53,13 +53,10 @@
       \field{howpublished}{Electronic Book}
       \field{title}{PC Architecture}
       \verb{url}
-      \verb %5Curl%7Bhttp://www.karbosguide.com/books/pcarchitecture/chapter00.htm%7D
+      \verb http://www.karbosguide.com/books/pcarchitecture/chapter00.htm
       \endverb
     \endentry
   \endsortlist
-  \missing{fig:pcarch-carbo}
-  \missing{fig:numa1}
-  \missing{fig:uma1}
 \endrefsection
 \endinput
 
