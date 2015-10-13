@@ -2243,6 +2243,11 @@
     <bcf:citekey order="4">qpi-intel</bcf:citekey>
     <bcf:citekey order="5">qpi-intel</bcf:citekey>
     <bcf:citekey order="6">qpi-intel</bcf:citekey>
+    <bcf:citekey order="7">qpi-intel</bcf:citekey>
+    <bcf:citekey order="8">amd-ibs</bcf:citekey>
+    <bcf:citekey order="9">intel-devguide</bcf:citekey>
+    <bcf:citekey order="10">libnuma</bcf:citekey>
+    <bcf:citekey order="11">autopin</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="anyt" type="entry" sortscheme="anyt">
   <bcf:sorting>

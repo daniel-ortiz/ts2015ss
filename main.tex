@@ -9,8 +9,8 @@
 \input{settings/commands}
 
 % TODO: remove if  glossary not needed
-\input{glossary/terms}
-\input{glossary/acronyms}
+%\input{glossary/terms}
+%\input{glossary/acronyms}
 
 \begin{document}
 
@@ -21,7 +21,6 @@
 %IMPORTANT compiled with miktex latex->dvi->pdf
 \input{pages/title}
 \input{pages/disclaimer}
-\input{pages/acknowledgements}
 \input{pages/abstract}
 \microtypesetup{protrusion=false}
 \tableofcontents{}
@@ -30,13 +29,15 @@
 \mainmatter{}
 
 \input{chapters/introduction}
+\input{chapters/theorethicalfound}
+\input{chapters/soldesign}
 % TODO: add more chapters here
 
 \appendix{}
 
  % TODO: remove if glossary not needed
-\glsaddall{} % add all defined terms to glossary, even if not referenced in text
-\printglossaries{}
+%\glsaddall{} % add all defined terms to glossary, even if not referenced in text
+%\printglossaries{}
 
 \microtypesetup{protrusion=false}
 \listoffigures{}

@@ -19,6 +19,45 @@
 
 \refsection{0}
   \sortlist{anyt}{anyt}
+    \entry{intel-devguide}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2bf5b828f43e3410d02251f01895ef22}{Corporation"}{C\bibinitperiod}{"Intel}{"\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{2bf5b828f43e3410d02251f01895ef22}
+      \strng{fullhash}{2bf5b828f43e3410d02251f01895ef22}
+      \field{labelalpha}{Cor15}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Intel 64 and IA-32 Architechtures Software Developer's Manual, Volume 3: System Programming Guide}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
+      \endverb
+    \endentry
+    \entry{amd-ibs}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=42e41013dd117deab56c732cb46f99e2}{Drongowski}{D\bibinitperiod}{Paul\bibnamedelima J.}{P\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {AMD}%
+      }
+      \strng{namehash}{42e41013dd117deab56c732cb46f99e2}
+      \strng{fullhash}{42e41013dd117deab56c732cb46f99e2}
+      \field{labelalpha}{Dro17}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{Instruction-Based Sampling: A New Performance Analysis Technique for AMD Family 10h Processors}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://developer.amd.com/wordpress/media/2012/10/AMD_IBS_paper_EN.pdf
+      \endverb
+    \endentry
     \entry{qpi-intel}{misc}{}
       \name{author}{1}{}{%
         {{uniquename=0,hash=d01f15e44e778d65f4aef36734633ce6}{{Intel\bibnamedelimb Corporation}}{I\bibinitperiod}{}{}{}{}{}{}}%
@@ -55,6 +94,66 @@
       \verb{url}
       \verb http://www.karbosguide.com/books/pcarchitecture/chapter00.htm
       \endverb
+    \endentry
+    \entry{libnuma}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=239f2e62207bdc46354d30e0b1c0a4a7}{Kleen}{K\bibinitperiod}{Adreas}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {AMD}%
+      }
+      \strng{namehash}{239f2e62207bdc46354d30e0b1c0a4a7}
+      \strng{fullhash}{239f2e62207bdc46354d30e0b1c0a4a7}
+      \field{labelalpha}{Kle05}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{title}{A NUMA API for Linux}
+      \field{year}{2005}
+      \verb{url}
+      \verb http://developer.amd.com/wordpress/media/2012/10/LibNUMA-WP-fv1.pdf
+      \endverb
+    \endentry
+    \entry{autopin}{incollection}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=1fe28991b9ccda2782fd85aaf1da86f3}{Klug}{K\bibinitperiod}{Tobias}{T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4e77235098a8f201e93131dfd93ef793}{Ott}{O\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bb8e168a9524f2fc3b98cf448d7163d3}{Weidendorfer}{W\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c110ca78b13ead478f622f63cc25de69}{Trinitis}{T\bibinitperiod}{Carsten}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=6ee54bd1af8b2910d8a45f82034adbe2}{Stenström}{S\bibinitperiod}{Per}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{6ab325cb38e5ef65869caad545d906d4}
+      \strng{fullhash}{6ab325cb38e5ef65869caad545d906d4}
+      \field{labelalpha}{Klu+11}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Transactions on High-Performance Embedded Architectures and Compilers III}
+      \field{isbn}{978-3-642-19447-4}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{autopin – Automated Optimization of Thread-to-Core Pinning on Multicore Systems}
+      \field{volume}{6590}
+      \field{year}{2011}
+      \field{pages}{219\bibrangedash 235}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1007/978-3-642-19448-1_12
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-642-19448-1_12
+      \endverb
+      \keyw{Multicore; CMP; automatic performance optimization; hardware performance counters; CPU binding; thread placement}
     \endentry
   \endsortlist
 \endrefsection

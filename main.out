@@ -1,13 +1,23 @@
-\BOOKMARK [0][-]{figure.caption.4}{Acknowledgments}{}% 1
-\BOOKMARK [0][-]{chapter*.5}{Abstract}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Theorethical Foundations}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Multicore Systems}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.1}{Thread pinning}{section.1.1}% 5
-\BOOKMARK [1][-]{section.1.2}{The bus interface and multicore systems}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.3}{Multiprocessor Systems}{chapter.1}% 7
-\BOOKMARK [2][-]{subsection.1.3.1}{Numa systems}{section.1.3}% 8
-\BOOKMARK [1][-]{section.1.4}{Computer performance measurement}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.4.1}{Instruction sampling}{section.1.4}% 10
-\BOOKMARK [0][-]{chapter*.10}{List of Figures}{}% 11
-\BOOKMARK [0][-]{chapter*.11}{List of Tables}{}% 12
-\BOOKMARK [0][-]{chapter*.12}{Bibliography}{}% 13
+\BOOKMARK [0][-]{chapter*.5}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 2
+\BOOKMARK [0][-]{chapter.2}{Theorethical Foundations}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Multicore Systems}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.1.1}{Thread pinning}{section.2.1}% 5
+\BOOKMARK [1][-]{section.2.2}{The bus interface and multicore systems}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Multiprocessor Systems}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.3.1}{Numa systems}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{Computer performance measurement}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.4.1}{Instruction sampling}{section.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.4.2}{Accessing the performance counters from code}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.3}{Documentation of the performance measurement facilities: The Intel case}{section.2.4}% 12
+\BOOKMARK [1][-]{section.2.5}{Related software}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.5.1}{Libnuma}{section.2.5}% 14
+\BOOKMARK [2][-]{subsection.2.5.2}{Autopin and Autpin+}{section.2.5}% 15
+\BOOKMARK [2][-]{subsection.2.5.3}{Software for performance measurement}{section.2.5}% 16
+\BOOKMARK [2][-]{subsection.2.5.4}{An introduction to perf}{section.2.5}% 17
+\BOOKMARK [0][-]{chapter.3}{Solution design}{}% 18
+\BOOKMARK [1][-]{subsection.3.0.1}{Strategy and alternatives of development}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.0.2}{Overview of the sample reading process}{subsection.3.0.1}% 20
+\BOOKMARK [0][-]{chapter*.11}{List of Figures}{}% 21
+\BOOKMARK [0][-]{chapter*.12}{List of Tables}{}% 22
+\BOOKMARK [0][-]{chapter*.13}{Bibliography}{}% 23
