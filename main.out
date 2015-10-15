@@ -16,8 +16,21 @@
 \BOOKMARK [2][-]{subsection.2.5.3}{Software for performance measurement}{section.2.5}% 16
 \BOOKMARK [2][-]{subsection.2.5.4}{An introduction to perf}{section.2.5}% 17
 \BOOKMARK [0][-]{chapter.3}{Solution design}{}% 18
-\BOOKMARK [1][-]{subsection.3.0.1}{Strategy and alternatives of development}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.0.2}{Overview of the sample reading process}{subsection.3.0.1}% 20
-\BOOKMARK [0][-]{chapter*.11}{List of Figures}{}% 21
-\BOOKMARK [0][-]{chapter*.12}{List of Tables}{}% 22
-\BOOKMARK [0][-]{chapter*.13}{Bibliography}{}% 23
+\BOOKMARK [1][-]{section.3.1}{Overview of the SPM tool}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Strategy and alternatives of development}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.2.1}{Perf user tools}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.2}{NumaTop}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.3}{Evaluation}{section.3.2}% 23
+\BOOKMARK [1][-]{section.3.3}{Communicating with perf's kernel side}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.1}{Configuration}{section.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.2}{Start and stop of the sampling}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.3}{Retrieval and the reading the samples}{section.3.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Important data structures}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.4.1}{The perf\137event\137attr struct}{section.3.4}% 29
+\BOOKMARK [2][-]{subsection.3.4.2}{A perf sample}{section.3.4}% 30
+\BOOKMARK [2][-]{subsection.3.4.3}{The numatop core}{section.3.4}% 31
+\BOOKMARK [1][-]{section.3.5}{Main layout of the spm tool}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.6}{Integration with Autopin+}{chapter.3}% 33
+\BOOKMARK [0][-]{chapter*.15}{List of Figures}{}% 34
+\BOOKMARK [0][-]{chapter*.16}{List of Tables}{}% 35
+\BOOKMARK [0][-]{chapter*.17}{Bibliography}{}% 36

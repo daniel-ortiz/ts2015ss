@@ -38,12 +38,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Solution design}{11}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.0.1}Strategy and alternatives of development}{11}{subsection.3.0.1}
+\contentsline {section}{\numberline {3.1}Overview of the SPM tool}{11}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.0.2}Overview of the sample reading process}{11}{subsection.3.0.2}
+\contentsline {section}{\numberline {3.2}Strategy and alternatives of development}{11}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Figures}{12}{chapter*.11}
+\contentsline {subsection}{\numberline {3.2.1}Perf user tools}{12}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Tables}{13}{chapter*.12}
+\contentsline {subsection}{\numberline {3.2.2}NumaTop}{13}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{14}{chapter*.13}
+\contentsline {subsection}{\numberline {3.2.3}Evaluation}{13}{subsection.3.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Communicating with perf's kernel side}{13}{section.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}Configuration}{13}{subsection.3.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Start and stop of the sampling}{14}{subsection.3.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Retrieval and the reading the samples}{14}{subsection.3.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Important data structures}{15}{section.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}The perf\_event\_attr struct}{15}{subsection.3.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.2}A perf sample}{15}{subsection.3.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.3}The numatop core}{16}{subsection.3.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.5}Main layout of the spm tool}{16}{section.3.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.6}Integration with Autopin+}{16}{section.3.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Figures}{19}{chapter*.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Tables}{20}{chapter*.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Bibliography}{21}{chapter*.17}
