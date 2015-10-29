@@ -2,8 +2,11 @@
 
 These chapter lists all the code resources used during the development of this project.
 
-\begin{itemize}
+\begin{enumerate}
 	\item \textbf{Perf source code}: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git The kernel sources contain the implementation for both the kernel and user sides of perf. The subdirectory tools/perf contains the userside sources which have their separate make file.
 	\item \textbf{Numatop}
 	\item \textbf{Autopin+ with the SPM tool integrated}
-\end{itemize}
+	\item \textbf{Original distgen}: https://github.com/lrr-tum/reuse.git. The original code for the distgen benchmark.
+	\item \textbf{Distgen based benchmarks}: https://github.com/daniel-ortiz/spm-benchmarks The repository that contains the modified distgen versions used for the measurements: Subfolder \textit{bench-oneremote} has the code for running the benchmark with two threads, subfolder {bench-allremote} contains the code for running the benchmark in all the cores of the system and subfolder \textit{movepages\_time} has the code for characterizing the completion time of the move\_pages function.
+\end{enumerate}
+

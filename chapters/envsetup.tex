@@ -1,16 +1,20 @@
-\chapter{Benchmarking and environment setup}\label{chapter:envsetup}
+\chapter{Benchmarking, environment setup and characterization of the Sandy Bridge Performance Measurement Unit}\label{chapter:envsetup}
 
-1)	MAC cluster description	3
-2)	Benchmarks	3
-•	Distgen (Both straming and random versions)	3
-•	LLAMA	3
+This chapters aims to introduce the environment used in the execution of the developed solution and the benchmarks that will be used as supervised programs to test the functioning of such solution. The second part of this chapter aims to present the first experimental results that seek to explain how the setting of the sampling configuration influences the obtained samples.
 
-
-\section{Running environment}\label{section:runningenv}
-
+\section{Testing environment}\label{section:runningenv}
+The testing unit consists of a host with two NUMA nodes joined by a QPI link. Every node is an Intel Xeon E5 compliant to the Intel Sandy Bridge-EP microarchitecture. Every node contains 8 physical cores, where every core has a clock speed of 2.6 GHz. However, because of the Hyper threading available in this processor, the operating system sees 16 cores for every NUMA node, making it 32 cores in total. The host altogether has a RAM capacity of 128 GB. All the tests were performed under the 3.16 version of the Kernel.
 
 \section{Employed Benchmarks}\label{section:emplybmchs}
 
 \subsection{Distgen}\label{section:distgen}
+The first algorithm to test aims to explore the behavior of the page movement functionality in a simple application which accesses a memory location. The simplest scenario would be to implement a loop that traverses a consecutive memory space sequentially and use the SPM tool to evaluate the performance of the developed algorithm. The objection to this idea is that because of the hardware prefetcher present in most of the modern processors, this application will execute very quickly. The first modification would be to access a random memory location in the memory space for each iteration, instead of the sequential access proposed first. The random location can be chosen by making use of the \textbf{random} call, present in the stock C library. The traversal executes slower than the sequential access as predicted, but the problem that was found is that the C random function has locks in its implementation that become a considerable important bottleneck.
 
-\subsection{LLAMA}\label{section:Lama}
+Because of the implementation with locks of the C function, what is needed is a random number generator faster than the stock random function. It does not matter if the random generation is less strict, because this generation is only needed to avoid engaging the hardware prefetcher and for this purpose \textbf{Distgen} comes into play. Distgen, coded by Josef Weidendorfer, whose availability is presented in code listing \textit{original distgen}, is an algorithm that transverses a memory area in a sequential or pseudo random manner where the latter mode is executed with low overhead. The execution command for distgen is as follows:
+\begin{center}
+\texttt{distgen [-p] [n-iterations] [size]}
+\end{center}
+
+Where the presence of the -p indicates that the traversal will use the pseudo random sequence, when not present it will transverse the space in a streaming fashion. The optional parameter n-iterations determines how many times the space will be traversed and the size parameters determines the size of the domain to iterate through. If any of these parameters is not specified the default will be applied.
+
+\subsection{LAMA}\label{section:Lama}
