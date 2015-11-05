@@ -8,7 +8,37 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {\relax 2.1}{\ignorespaces Description of the load latency record event as it appears on the Intel manual\relax }}{8}{table.caption.10}
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 2.1}{\ignorespaces Description of the load latency record event as it appears on the Intel manual\relax }}{11}{table.caption.13}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.1}{\ignorespaces Execution time given in seconds of the different distgen scenarios in random mode.\relax }}{35}{table.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.2}{\ignorespaces Execution throughput given in reads per second of the different distgen scenarios in random mode.\relax }}{35}{table.caption.28}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.3}{\ignorespaces Number of pages moved in the SPM scenario\relax }}{35}{table.caption.29}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.4}{\ignorespaces Execution time for the different scenarios of the distgen sequential algorithm with units given in seconds.\relax }}{36}{table.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.5}{\ignorespaces Execution throughput for the different scenarios of the distgen sequential algorithm with units given in reads per second.\relax }}{37}{table.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.6}{\ignorespaces Number of pages moved in the distgen sequential scenario.\relax }}{38}{table.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.7}{\ignorespaces Completion time in seconds for the random distgen with 30 threads employed\relax }}{39}{table.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.8}{\ignorespaces Latencies and timing table\relax }}{39}{table.caption.42}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.9}{\ignorespaces Number of moved pages by the SPM tool for the distgen random case with all threads engaged\relax }}{40}{table.caption.43}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {\relax 5.10}{\ignorespaces Number of moved pages by the SPM tool for the distgen random case with all threads engaged.\relax }}{40}{table.caption.44}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

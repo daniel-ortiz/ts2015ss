@@ -4,72 +4,132 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\nonumberline Abstract}{iii}{chapter*.5}
 \defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline About the author}{iv}{chapter*.6}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Theorethical Foundations}{2}{chapter.2}
+\contentsline {chapter}{\numberline {2}Theoretical Foundations}{4}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Multicore Systems}{2}{section.2.1}
+\contentsline {section}{\numberline {2.1}Multicore Systems}{4}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}Thread pinning}{2}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}Thread pinning}{5}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}The bus interface and multicore systems}{3}{section.2.2}
+\contentsline {section}{\numberline {2.2}The bus interface and multicore systems}{5}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Multiprocessor Systems}{4}{section.2.3}
+\contentsline {section}{\numberline {2.3}Multiprocessor Systems}{6}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Numa systems}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.1}Numa systems}{7}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Computer performance measurement}{6}{section.2.4}
+\contentsline {section}{\numberline {2.4}Computer performance measurement}{9}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Instruction sampling}{6}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}Instruction sampling}{9}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Accessing the performance counters from code}{7}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Accessing the performance counters from code}{9}{subsection.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.3}Documentation of the performance measurement facilities: The Intel case}{7}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.3}Documentation of the performance measurement facilities: The Intel case}{10}{subsection.2.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Related software}{8}{section.2.5}
+\contentsline {section}{\numberline {2.5}Related software}{11}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Libnuma}{8}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}Libnuma}{11}{subsection.2.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.2}Autopin and Autpin+}{9}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.2}Autopin and Autopin+}{11}{subsection.2.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.3}Software for performance measurement}{9}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.3}Software for performance measurement}{12}{subsection.2.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.4}An introduction to perf}{10}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.4}An introduction to perf}{13}{subsection.2.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Solution design}{11}{chapter.3}
+\contentsline {chapter}{\numberline {3}Solution design}{14}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Overview of the SPM tool}{11}{section.3.1}
+\contentsline {section}{\numberline {3.1}Overview of the SPM tool}{14}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Strategy and alternatives of development}{11}{section.3.2}
+\contentsline {section}{\numberline {3.2}Strategy and alternatives of development}{15}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Perf user tools}{12}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.1}Perf user tools}{15}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}NumaTop}{13}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}NumaTop}{16}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Evaluation}{13}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}Evaluation}{16}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Communicating with perf's kernel side}{13}{section.3.3}
+\contentsline {section}{\numberline {3.3}Communicating with perf's kernel side}{17}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Configuration}{13}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.1}Configuration}{17}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Start and stop of the sampling}{14}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.2}Start and stop of the sampling}{18}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.3}Retrieval and the reading the samples}{14}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.3}Retrieval and the reading the samples}{18}{subsection.3.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Important data structures}{15}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.4}The numatop core}{18}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}The perf\_event\_attr struct}{15}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.4}Important data structures}{19}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}A perf sample}{15}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.1}The perf\_event\_attr struct}{19}{subsection.3.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.3}The numatop core}{16}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.2}A perf sample}{19}{subsection.3.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Main layout of the spm tool}{16}{section.3.5}
+\contentsline {section}{\numberline {3.5}Internals of the spm tool}{20}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Integration with Autopin+}{16}{section.3.6}
+\contentsline {subsection}{\numberline {3.5.1}Layout of the spm tool}{20}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Figures}{19}{chapter*.15}
+\contentsline {subsection}{\numberline {3.5.2}Structure of the spm tool}{20}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline List of Tables}{20}{chapter*.16}
+\contentsline {subsection}{\numberline {3.5.3}Information collected by the SPM tool}{22}{subsection.3.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{21}{chapter*.17}
+\contentsline {subsection}{\numberline {3.5.4}Overview of the sample processing performed by SPM}{22}{subsection.3.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.5}Access to the SPM functionality}{23}{subsection.3.5.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.6}Configuration of the SPM settings}{23}{subsection.3.5.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.7}Page migration procedure}{24}{subsection.3.5.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.8}Integration with Autopin+}{25}{subsection.3.5.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Benchmarking, environment setup and characterization of the Performance Measurement Unit}{26}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Testing environment}{26}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Employed Benchmarks}{26}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Distgen}{26}{subsection.4.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}LAMA}{27}{subsection.4.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Characterization of an Intel Sandy Brige Performance Measurement Unit}{27}{section.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.1}Latency weight distribution}{27}{subsection.4.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.2}Number of obtained samples}{28}{subsection.4.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.3}Frequency of page access}{29}{subsection.4.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.4}Completion time of the move pages call}{30}{subsection.4.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Results and analysis}{32}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}SPM and distgen}{32}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}SPM and distgen with two threads}{32}{subsection.5.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Scenarios under consideration}{32}{section*.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Performance for the random mode}{34}{section*.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Performance for the sequential mode}{36}{section*.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.2}SPM and distgen with all threads employed}{37}{subsection.5.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Performance for the random mode}{38}{section*.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Performance for the sequential mode}{38}{section*.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\nonumberline Measuring the effect of SPM's action}{38}{section*.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Conclusions and possibilities of future work}{43}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Code resources}{44}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Figures}{45}{chapter*.49}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Tables}{47}{chapter*.50}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Bibliography}{48}{chapter*.51}

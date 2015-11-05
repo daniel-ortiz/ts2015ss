@@ -19,24 +19,6 @@
 
 \refsection{0}
   \sortlist{anyt}{anyt}
-    \entry{intel-devguide}{online}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=2bf5b828f43e3410d02251f01895ef22}{Corporation"}{C\bibinitperiod}{"Intel}{"\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{2bf5b828f43e3410d02251f01895ef22}
-      \strng{fullhash}{2bf5b828f43e3410d02251f01895ef22}
-      \field{labelalpha}{Cor15}
-      \field{sortinit}{C}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{01}
-      \field{title}{Intel 64 and IA-32 Architechtures Software Developer's Manual, Volume 3: System Programming Guide}
-      \field{year}{2015}
-      \verb{url}
-      \verb http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
-      \endverb
-    \endentry
     \entry{amd-ibs}{online}{}
       \name{author}{1}{}{%
         {{uniquename=0,hash=42e41013dd117deab56c732cb46f99e2}{Drongowski}{D\bibinitperiod}{Paul\bibnamedelima J.}{P\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
@@ -72,10 +54,30 @@
       \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{http://www.intel.de/content/dam/doc/white-paper/quick-path-interconnect-introduction-paper.pdf}}
       \field{month}{01}
       \field{title}{An introduction to the Intel QuickPath Interconnect.}
       \field{year}{2009}
+      \verb{url}
+      \verb http://www.intel.de/content/dam/doc/white-paper/quick-path-interconnect-introduction-paper.pdf
+      \endverb
+    \endentry
+    \entry{intel-devguide}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d01f15e44e778d65f4aef36734633ce6}{{Intel\bibnamedelimb Corporation}}{I\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{d01f15e44e778d65f4aef36734633ce6}
+      \strng{fullhash}{d01f15e44e778d65f4aef36734633ce6}
+      \field{labelalpha}{Int15}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Intel 64 and IA-32 Architechtures Software Developer's Manual, Volume 3: System Programming Guide}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
+      \endverb
     \endentry
     \entry{pcarch-carbo}{online}{}
       \name{author}{2}{}{%
@@ -123,12 +125,6 @@
         {{uniquename=0,hash=bb8e168a9524f2fc3b98cf448d7163d3}{Weidendorfer}{W\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=c110ca78b13ead478f622f63cc25de69}{Trinitis}{T\bibinitperiod}{Carsten}{C\bibinitperiod}{}{}{}{}}%
       }
-      \name{editor}{1}{}{%
-        {{hash=6ee54bd1af8b2910d8a45f82034adbe2}{Stenström}{S\bibinitperiod}{Per}{P\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {English}%
-      }
       \list{publisher}{1}{%
         {Springer Berlin Heidelberg}%
       }
@@ -140,19 +136,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Transactions on High-Performance Embedded Architectures and Compilers III}
-      \field{isbn}{978-3-642-19447-4}
       \field{series}{Lecture Notes in Computer Science}
       \field{title}{autopin – Automated Optimization of Thread-to-Core Pinning on Multicore Systems}
       \field{volume}{6590}
       \field{year}{2011}
       \field{pages}{219\bibrangedash 235}
       \range{pages}{17}
-      \verb{doi}
-      \verb 10.1007/978-3-642-19448-1_12
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1007/978-3-642-19448-1_12
-      \endverb
       \keyw{Multicore; CMP; automatic performance optimization; hardware performance counters; CPU binding; thread placement}
     \endentry
   \endsortlist

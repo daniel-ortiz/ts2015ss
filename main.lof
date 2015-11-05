@@ -8,20 +8,62 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces bus-abtraction}}{3}{figure.caption.7}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces basic-uma}}{4}{figure.caption.8}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces basic-uma}}{5}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 1.1}{\ignorespaces Abstract view of a modern computing environment}}{1}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces sampling-process}}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Abstraction of the data traffic between the CPU and the external entities}}{6}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces basic-uma}}{12}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Basic UMA System with the Frontside Bus as an unifying element}}{7}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces sampling-process}}{13}{figure.caption.13}
+\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces Basic NUMA System}}{8}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces basic-uma}}{17}{figure.caption.14}
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Three phases of execution of the SPM development}}{14}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Flow of information in the development}}{16}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Steps of the performance measurement process}}{17}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Timing and threads in the execution of the SPM tool}}{21}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Sample weight distribution with a period of 20 instructions per sample.}}{28}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Sample weight distribution with a period of 200 instructions per sample.}}{29}{figure.caption.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Number of samples obtained for different weight settings \relax }}{30}{figure.caption.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Percentage of pages that were accessed a given number of times \relax }}{31}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Completion times for the move pages call for different page count under contention and no load scenarios\relax }}{31}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Depiction of the working of the distgen vanilla local scenario with two threads}}{32}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Depiction of the working of the distgen vanilla remote scenario with two threads}}{33}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Normalized execution times for distgen random with two threads\relax }}{36}{figure.caption.30}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Normalized execution throughput for distgen random with two threads\relax }}{37}{figure.caption.31}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Normalized execution speed for the different scenarios of the distgen sequential with two threads with respect to the vanilla local scenario\relax }}{38}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces Normalized execution throughput for the different scenarios of the distgen sequential with two threads with respect to the vanilla local scenario.\relax }}{39}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Normalized execution time for the random distgen cases with 30 threads employed.\relax }}{40}{figure.caption.40}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Normalized execution time for the sequential distgen cases with 30 threads employed.\relax }}{41}{figure.caption.45}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.9}{\ignorespaces View of the average throughput during the execution of distgen under SPM supervision. The page migration is done at time 45.\relax }}{41}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 5.10}{\ignorespaces View of the average and local and remote transfer rates during the execution of distgen under SPM supervision. The page migration is done at time 45.\relax }}{42}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

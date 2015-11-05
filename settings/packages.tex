@@ -14,6 +14,7 @@
   maxbibnames=99,
   firstinits,
   uniquename=init]{biblatex} % TODO: adapt bibliography style
+	\def\UrlBreaks{\do\/\do-}
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{scrhack} % necessary for listings package
@@ -30,5 +31,5 @@
 \usepackage[toc,page]{appendix}
 %\usepackage[toc,nonumberlist,acronym]{glossaries} % TODO: remove if glossary not needed
 %apparently necessary only for dvi generation?
-\usepackage{breakurl}
+\usepackage[hyphenbreaks]{breakurl}
 %\usepackage[hyphens]{url}
