@@ -8,7 +8,7 @@ The testing unit consists of a host with two NUMA nodes joined by a QPI link. Ev
 \section{Employed Benchmarks}\label{section:emplybmchs}
 
 \subsection{Distgen}\label{section:distgen}
-The first algorithm to test aims to explore the behavior of the page movement functionality in a simple application which accesses a memory location. The simplest scenario would be to implement a loop that traverses a consecutive memory space sequentially and use the SPM tool to evaluate the performance of the developed algorithm. The objection to this idea is that because of the hardware prefetcher present in most of the modern processors, this application will execute very quickly. The first modification would be to access a random memory location in the memory space for each iteration, instead of the sequential access proposed first. The random location can be chosen by making use of the \textbf{random} call, present in the stock C library. The traversal executes slower than the sequential access as predicted, but the problem that was found is that the C random function has locks in its implementation that become a considerable important bottleneck.
+The first algorithm to test aims to explore the behavior of the page movement functionality in a simple application which accesses a memory location. The simplest scenario would be to implement a loop that traverses a consecutive memory space sequentially and use the SPM tool to evaluate the performance of the developed algorithm. The objection to this idea is that because of the hardware prefetcher present in most of the modern processors, this application will execute very quickly. The first modification would be to access a random memory location in the memory space for each iteration, instead of the sequential access proposed first. The random location can be chosen by making use of the \textbf{random} call, present in the stock C library. The traversal executes slower than the sequential access as predicted, but the problem that was found is that the C random function has locks in its implementation that become a considerable bottleneck.
 
 Because of the implementation with locks of the C function, what is needed is a random number generator faster than the stock random function. It does not matter if the random generation is less strict, because this generation is only needed to avoid engaging the hardware prefetcher and for this purpose \textbf{Distgen} comes into play. Distgen, coded by Josef Weidendorfer, whose availability is presented in code listing \textit{original distgen}, is an algorithm that transverses a memory area in a sequential or pseudo random manner where the latter mode is executed with low overhead. The execution command for distgen is as follows:
 \begin{center}
@@ -17,63 +17,74 @@ Because of the implementation with locks of the C function, what is needed is a 
 
 Where the presence of the -p indicates that the traversal will use the pseudo random sequence, when not present it will transverse the space in a streaming fashion. The optional parameter n-iterations determines how many times the space will be traversed and the size parameters determines the size of the domain to iterate through. If any of these parameters is not specified the default will be applied.
 
-\subsection{LAMA}\label{section:Lama}
+\subsection{LAMA-CG}\label{section:Lama}
+LAMA (www.liblama.org) is an open source library written in C++ and developed by the SCAI Institute of the Fraunhofer Society. Its objective is to ease the use of applications that require sparse and dense linear algebra functionality. It supports many parallel computing models such as MPI and NVIDIA GPUs, but its use on this document is limited to the single node case using OpenMP. The application to be tested is a conjugate gradient solver (CG) which makes use of the LAMA functionality. The reason it was chosen is because it is an algorithm frequently found in high performance computing applications, with a more realistic functionality than distgen.
+The invocation of the cg functionality is done with the following command:\\
+\begin{center}
+\texttt{cg\_solver.exe LOG TX}
+\end{center}
 
-\section{Characterization of an Intel Sandy Brige Performance Measurement Unit}\label{section:pmu-charzn}
+Where LOG is a logging option not used in this project and the X after the T represents the number of threads to run the project with.
+
+\section{Characterization of an Intel Sandy Bridge Performance Measurement Unit}\label{section:pmu-charzn}
+This section presents some measurements that allow to give a better understanding of how the configuration parameters of the CPU guide its behavior. All the measurements were taken with distgen as the observed process.
+
 
 \subsection{Latency weight distribution}\label{subsection:pmu-latwei}
-
-The sample latency distribution show the distribution of the latency values when the sample is taken under a certain period and minimum weight threshold, where every bar corresponds to a specific latency weight threshold and all the bars on the same picture correspond to the same sampling period. The weight of every sample is placed in its corresponding interval and every color corresponds to the percentages of samples belonging to that interval.  The results are shown in figures X and Y, which correspond to the periods of 20 and 200. The other figures are omitted because of an almost identical distribution to the ones shown
-
-It can be observed how the working of the minimum weight threshold works: for all the distributions with a weight under 250, it can be seen how the samples with weights between 200 and 150, 250 and 300 and 300 and 350 dominate the distribution but with filtering values above that value the samples in those intervals no longer appear. 2.	The distribution of the samples is very similar throughout all the period, which shows that it is independent of the sampling period.3:	In this algorithm memory latency is an important problem, taking into account that local memory request are served with latencies of tens of clock cycles, at most.
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/latencydistw20.eps}
-		\caption[Sample weight distribution with a period of 20 instructions per sample.]{Sample weight distribution with a period of 20 instructions per sample with different minimum weight thresholds. }
+		\caption[Sample weight distribution with a period of 20 instructions per sample.]{Sample weight distribution with a period of 20 instructions per sample for different minimum weight thresholds using distgen as the observed process. }
 		\label{fig:latencydistw20}
 \end{figure}
 
-\begin{figure}[th]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/latencydistw200.eps}
-		\caption[Sample weight distribution with a period of 200 instructions per sample.]{Sample weight distribution with a period of 20 instructions per sample with different minimum weight thresholds.}
+		\caption[Sample weight distribution with a period of 200 instructions per sample.]{Sample weight distribution with a period of 20 instructions per sample for different minimum weight thresholds using distgen as the observed process.}
 		\label{fig:latencydistw200}
 \end{figure}
 
+
+The sample latency distribution shows the distribution of the latency values when the sample is taken under a certain period and minimum weight threshold. Every bar corresponds to a specific latency weight threshold and all the bars on the same picture correspond to the same sampling period. The weight of every sample is placed in its corresponding interval and every color corresponds to the percentages of samples belonging to that interval in proportion to the overall number of samples taken.  The results are shown in figures \ref{fig:latencydistw20} and \ref{fig:latencydistw200}, which correspond to the periods of 20 and 200 instructions per sample. The other figures are omitted because of an almost identical distribution in relation to the ones shown
+
+There are some insights that these graphics deliver: First, the working of the minimum weight threshold works, for instance all the distributions with a weight under 250, it can be seen how the samples with weights between 200 and 150, 250 and 300 and 300 and 350 dominate the distribution but with filtering values above that value the samples in those intervals no longer appear. Second, The distribution of the samples is very similar throughout all the sampling periods, which shows that it is independent of the sampling period values. Third, In this algorithm memory latency is an important cause for slow performance, taking into account that local memory request are served with latencies of tens of clock cycles, at most.
+
+
 \subsection{Number of obtained samples}\label{subsection:pmu-obtainedsamp}
-
-The sample distributions ommit a very important type of information, which is the number of samples which are acquired for every period and weight threshold combination. Knowing how many samples is important, because a high number of samples helps the SPM tool form a good idea of the memory access behavior of the observed process, but on the other hand every sample received must be processed which in turn implies CPU consumption which could be taken away from the supervised process. 
-
-Figure X shows how the number of samples taken reacts to changes in the sampling period and minimum weight threshold. Because a higher weight threshold implies discarding a bigger number of samples under a certain value this, relationship decreases. This experiments also confirms that a higher period is directly related to an increasing number of samples.
 
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/number-samples.eps}
-		\caption{Number of samples obtained for different weight settings }
+		\caption{Number of samples obtained for different period and weight threshold settings with distgen-random as the observed process.}
 		\label{fig:pmu-obtainedsamp}
 \end{figure}
 
-\subsection{Frequency of page access}\label{subsection:pmu-freqpgacc}
+The sample distributions omit a very important type of information, which is the number of samples acquired for every period and weight threshold combination. Knowing how many samples were obtained is important because a high number of samples helps the SPM tool form a good idea of the memory access behavior of the observed process, but on the other hand every sample received must be processed, which in turn implies higher CPU consumption that could be taken away from the supervised process. 
 
-Figure X shows how the number of page accesses are distributed in a distgen run, this means that for an execution run of the algorithm a certain percentage of the pages were accessed within the given interval, this information is highly dependent on the nature of the algorithm observed. It can be seen that most of the pages were accessed between 3 and 10 times. This information is of very essential importance because it is necessary to decide after how many accesses it is possible to consider a page a certain remote or local access.
+Figure \ref{fig:pmu-obtainedsamp} shows how the number of samples taken reacts to changes in the sampling period and minimum weight threshold. Because a higher weight threshold implies discarding a bigger number of samples under a certain value, this relationship decreases. This experiment also confirms that a low period is directly related to an increasing number of samples.
+
+\subsection{Frequency of page access}\label{subsection:pmu-freqpgacc}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/sample-concentration.eps}
-		\caption{Percentage of pages that were accessed a given number of times }
+		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the distgen-random algorithm.}
 		\label{fig:pmu-concentsamp}
 \end{figure}
+
+Figure \ref{fig:pmu-concentsamp} shows how the number of accesses to the same page are distributed in a distgen run, this means that for an execution run of the algorithm which percentage of the pages were accessed, this information is highly dependent on the nature of the algorithm observed. It can be seen that most of the pages were accessed between 3 and 10 times. This information is of very essential importance because it is necessary to decide after how many accesses it is possible to consider a page a certain remote or local access.
 
 \subsection{Completion time of the move pages call}\label{subsection:pmu-movpatime}
 
 
-The move\_pages directive plays a very important role in the SPM tool because it provides the means to reallocate one page from one node to another, as well as querying in which node a given page, or pages reside in Figure XYZ shows the behavior of such call as function of the number of pages to move. Two scenarios are measured: the first one is the relocation of the pages in conditions of such process running exclusively on the system and the other is the same relocation together with a distgen process using all the cores, which represents a congestion scenarios. It can be seen that for a small number of pages this behavior is almost lineal but it meets an inflection point where the function completion time tends to grow smaller. The effects of the congestion can be seen since for most of the measurements the function takes longer to complete. In more elaborate scenarios as the ones shown here the function could take longer to complete, figures in the order of four seconds were measured with scenarios of redirections in multiple directions with sizes of 200 thousand samples.
+The \textit{move\_pages} directive plays a very important role in the SPM tool because it provides the means to reallocate one page from one node to another, as well as querying in which node a given page, or pages reside in. Figure \ref{fig:mov-pages-time.eps} shows the behavior of such call as function of the number of pages to move. Two scenarios are measured: the first one is the relocation of the pages in conditions of such process running exclusively on the system, and the other is the same relocation together with a distgen process using all the cores, which represents a congestion scenario. It can be seen that for a small number of pages this behavior is almost lineal but it has an inflection point where the function completion time tends to show a smaller growth with increasing move set size. For the congestion scenario, the function takes longer to complete. In more elaborate scenarios as the ones shown here, the function could take longer to complete, figures in the order of four seconds were measured with scenarios of moving pages in multiple directions with move sizes of 200 thousand samples.
 
 \begin{figure}[th]  
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/mov-pages-time.eps}
-		\caption{Completion times for the move pages call for different page count under contention and no load scenarios}
+		\caption{Completion times for the move pages call for different page count under contention and no load scenarios for the distgen-random scenario.}
 		\label{fig:mov-pages-time.eps}
 \end{figure}

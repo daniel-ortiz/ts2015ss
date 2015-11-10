@@ -19,30 +19,30 @@ This chapter develops three parts: Sections \ref{section:ovv-spm} and \ref{secti
 		\label{fig:sprinciple}
 \end{figure}
 
-Figure \ref{fig:sprinciple} shows the high level operation of the SPM tool through time, which has three phases of execution: the \textbf{observation phase}, the \textbf{page migration phase} and the \textbf{improved phase}. During the measuring phase, SPM measures the memory behavior of the guest process, where the length of this process is determined by the user and set in the overall SPM configuration. The page migration will reallocate the home of the pages according to the information obtained in the observation phase and a pre-established policy. The length of the page migration phase depends solely on how long it takes to migrate the pages marked for this process. The improved phase lasts until the end of program execution, where it will again analyze the memory behavior of the program and print information at the end to make possible an assessment over the benefits of the page migration process.
+Figure \ref{fig:sprinciple} shows the high level operation of the SPM tool through time, which has three phases of execution: the \textbf{observation phase}, the \textbf{page migration phase} and the \textbf{improved phase}. During the measuring phase, SPM measures the memory behavior of the guest process, where the length of this process is determined by the user and set in the overall SPM configuration. The page migration will reallocate the home of the pages according to the information obtained in the observation phase and a pre-established policy. The length of the page migration phase depends on how long it takes to migrate the pages marked for this process. The improved phase lasts until the end of program execution, where it will again analyze the memory behavior of the program and print information to make possible an assessment over the benefits of the page migration process.
 
 \section{Strategy and alternatives of development}\label{section:strat}
 In order to implement the desired functionality the idea is to adapt the code from one of the already working tools that access the PMU to the needs of the project. Two options were considered: \textit{perf} and \textit{numaTop}, with the latter being chosen. It is worth noting that for the communication with the Performance Measurement Unit both tools make use of the same set of library calls. A short description of both alternatives will be given in this chapter.
 
-Figure \ref{fig:dstrategy} shows the overall working principle of the developed tool. The developed tool invokes the configuration capabilities from the kernel side, which then configures the physical PMU. Once configured and started the PMU starts passing samples to the kernel side, which passes them on to the measurement tool once the buffers are read. Upon a read in user space the sample will be passed to the custom tool for processing the samples. The control part will be in charge of coordinating the execution of all the parts of the program.
+Figure \ref{fig:dstrategy} shows the overall working principle of the developed tool. The developed tool invokes the configuration capabilities from the kernel side, which then configures the physical PMU. Once configured and started, the PMU starts passing samples to the kernel side, which passes them on to the measurement tool once the buffers are read. Upon a read in user space the sample will be passed to the custom tool for processing the samples. The control part will be in charge of coordinating the execution of all the parts of the program.
 
 \begin{figure}[ht]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/dev-strategy.eps}
-		\caption[Flow of information in the development]{Interaction between the parts of the performance measurement. The continuous arrows show the flow of control calls and the dashed line shows the flow of the performance samples.}
+		\caption[Flow of information in the development]{Interaction between the parts of the performance measurement: The continuous arrows show the flow of control calls and the dashed line shows the flow of the performance samples.}
 		\label{fig:dstrategy}
 \end{figure}
 \subsection{Perf user tools}\label{section:perf-ut}
 
-This is the most comprehensive covering a diverse range of architectures and performance events. Unfortunately this complexity together with the lack of documentation make the adaptation process a time consuming task and the end solution comprises a great number of source files, which cannot be shrunk without undertaking a large effort. 
+This is the most comprehensive alternative covering a diverse range of architectures and performance events. Unfortunately this complexity together with the lack of documentation make the adaptation process a time consuming task and the end solution comprises a great number of source files, which cannot be shrunk without undertaking a large effort. 
 
 The perf user tool \texttt{perf top} was adapted in order to have a constant and never ending access to the samples. In the function \texttt{perf\_event\_process\_samples} in the file builtin\_top.c a call is made to intercept the produced sample and analyzed according to our needs. The GUI of the executable is disabled.
 
 \subsection{NumaTop}\label{section:numatop}
-NumaTop provides a reduced functionality in comparison with the user side of perf, but it still provides all the functionality that is needed for this project. Its smaller code size helps to better understand how the sample acquisition process better works. The needed methods were grouped into a smaller file in order to make the number of source files smaller and around this the SPM code was built.
+NumaTop provides a reduced functionality in comparison with the user side of perf, but it still provides all the functionality that is needed for this project. Its smaller code size helps to understand how the sample acquisition process works. The needed methods were grouped into a single file in order to make the number of source files smaller and around this the SPM code was built.
 
 \subsection{Evaluation}\label{section:sol-evltn}
-Even though both provide a suitable alternative to the functionality needed, the implementation based on numaTop was chosen mainly because it provides a smaller code base that compiles faster and is easier to understand. 
+Even though both provide a suitable alternative to the functionality needed, the implementation based on numatop was chosen mainly because it provides a smaller code base that compiles faster and is easier to understand. 
 
 \section{Communicating with perf's kernel side}\label{section:ovv-perfks}
 
@@ -56,7 +56,7 @@ Even though both provide a suitable alternative to the functionality needed, the
 In order to be able to retrieve samples from the kernel side, a small amount of system calls have to be made. This section describes the flow for using the measuring system and mentions the system calls used. Figure \ref{fig:sprocess} shows an overview of the sampling process with its four stages: configuration, start, retrieval and stop.
 
 \subsection{Configuration}\label{section:confgtn}
-The configuration of the PMU is made for every event and for every CPU that is to be watched, by making the system call with identifier \_\_NR\_perf\_event\_open. An actual call would take the form: 
+The configuration of the PMU is made for every event and for every CPU that is to be watched by making the system call with identifier \_\_NR\_perf\_event\_open. An actual call would take the form: 
 \\
 \begin{center}
 \texttt{syscall(\_\_NR\_perf\_event\_open, attr, pid, cpu, group\_fd, flags) }
@@ -74,7 +74,7 @@ After setting up the PMU the function \textbf{mmap} is called in order to create
 
 \subsection{Start and stop of the sampling}\label{section:start-sto}
 
-To start and stop the sample unit the following system call is made: 
+To start and stop the performance measurement unit the following system call is made: 
 \\
 \begin{center}
 \texttt{ioctl(descriptor, constant, 0)}
@@ -91,7 +91,7 @@ The read of the descriptor is made using the \textbf{mmap} function, which takes
 \subsection{The numatop core}\label{section:numatop-core}
 The SPM tool is based on an adaptation of the numatop functions used for communicating with the perf kernel side. This functions are located in the \textit{sampling-core.c} file of the SPM sources, or on the numatop sources themselves.
 
-The functions follow the logic described in section \ref{section:ovv-perfks} and they exist in two varieties: the methods with \textbf{profiling} in their name refer to the access of the registers that refer to a sampling value, such as the access to the offcore registers and the methods with \textbf{ll} refer to the load latency records, which are precise methods. Their functionality is very similar. 
+The functions follow the logic described in section \ref{section:ovv-perfks} and they exist in two varieties: the methods with \textbf{profiling} in their name refer to the access of the registers that refer to a numeric value, such as the access to the offcore registers and the methods with \textbf{ll} refer to the load latency records, which are precise methods. Their functionality is very similar. 
 
 \section{Important data structures}\label{section:important-structs}
 
@@ -148,8 +148,8 @@ The SPM tool consists of the following files:
 \subsection{Information collected by the SPM tool}\label{subsection:spminf}
 
 The information shown by SPM at the end of a measurement round is as follows:
-Total number of samples taken in the phase and number of samples collected belonging to the observed process.
 \begin{itemize}
+	\item Total number of samples taken in the phase and number of samples collected belonging to the observed process.
 	\item Number of remote candidate and total samples taken for every core.
 	\item Breakdown of samples taken by access type: How many samples are L1 hits, L2 hits, remote access and so forth.
 	\item Histogram of frequency of page accesses, that is a detail of how many pages were accessed a given time
