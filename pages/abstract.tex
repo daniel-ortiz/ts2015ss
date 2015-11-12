@@ -2,5 +2,12 @@
 
 %TODO: Abstract
 
+The mapping of the threads to computing cores and program memory to physical memory play a crucial role in the performance of a NUMA Computer System. This document discusses the development of the Sample-Page-Migrate tool (SPM), which aims to study the memory behavior of a program running on a NUMA Environment and then re-allocate the memory locations which are being served with a great latency in order to seek improvements in performance.
+
+The developed tool uses the access to the processor’s Performance Measurement Unit provided by the Linux Kernel, but still keeps all of its code in the user space. At the beginning it will accumulate samples, after a definite period of time it triggers the page migration based on an analysis of the accumulated information and in the last phase the observed program should run with a better performance because of the improved memory locality.
+
+The measurement tool possesses no internal knowledge about the implementation of the observed program, so it must form a picture of it from the acquired samples. The completeness of this picture depends mainly on the number of samples acquired, which can be regulated mainly by the measurement time and period of the samples. 
+
+The distgen and LAMA-CG algorithms are run as observed processes under SPM’s watch and it is found that an improvement in the performance of the program is reached in terms of increased instruction throughput and local memory traffic and reduced remote memory traffic.
 
 \pagebreak
