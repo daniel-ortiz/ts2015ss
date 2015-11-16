@@ -11,12 +11,12 @@ This section will discuss the different scenarios that will be used for the test
 	\item The \textbf{vanilla local scenario} is the code in its original form, two threads are run in the same NUMA node.
 	\item The \textbf{vanilla remote scenario}: Each thread runs on a separate NUMA node. The first thread initializes the memory space and the second thread accesses it. 
 	\item The \textbf{SPM scenario} is the same as the vanilla remote scenario but this time the program execution will be overseen by the SPM tool and the pages observed to be accessed more from a remote node are moved to the node that originates the greater number of memory accesses.
-	\item The \textbf{moveall} scenario is a distgen modification based on vanilla remote that after a determinate time of execution will move all the memory pages from a remote node to a local node.
+	\item The \textbf{moveall} scenario is a distgen modification based on vanilla remote that after a determinate time of execution, will move all the memory pages from a remote node to a local node.
 \end{itemize}
 
-Every one of this scenarios has a specific significance for the measurement of the performance: The vanilla local scenario shows the maximum speed possible for the given algorithm, vanilla remote will show how much performance deteriorates when the algorithm is forced to perform many remote accesses in order to fetch the required data, moveall is a reference scenario that tells how much it is possible to fix the performance degradation by taking the pages placed in a remote node and bringing them close to the executing node and SPM also tries to fix the slowdown caused by the remote placement of the pages, but since the SPM does not know about the internal implementation of the supervised process, it will only move the pages that the PMU reports as remote accesses. The closer SPM's results are to the moveall scenario, the best performing the SPM tool is. Figures \ref{fig:dgentt-local} and \ref{fig:dgentt-remote} present depictions of both local and remote vanilla scenarios.
+Every one of this scenarios has a special significance for the measurement of the performance: The vanilla local scenario shows the maximum speed possible for the given algorithm, vanilla remote will show how much performance deteriorates when the algorithm is forced to perform many remote accesses in order to fetch the required data, moveall is a reference scenario that tells how much it is possible to fix the performance degradation by taking the pages placed in a remote node and bringing them close to the executing node and SPM also tries to fix the slowdown caused by the remote placement of the pages, but since the SPM does not know about the internal implementation of the supervised process, it will only move the pages that the PMU reports as remote accesses. The closer SPM's results are to the moveall scenario, the best performing the SPM tool is. Figures \ref{fig:dgentt-local} and \ref{fig:dgentt-remote} present depictions of both local and remote vanilla scenarios.
 
-In order to be able to be able to place the pages remotely, a modification has to be made to the original distgen code, where the initialization is done by the master thread and the access is done only by the other thread, which is not the master. To determine whether the two threads are placed in a local node the environment variable \textit{GOMP\_CPU\_AFFINITY} is manipulated in order to determine the core in which the running threads will be placed. The availability of this modified two threads version is described in code listing 5 in Appendix \ref{app:coderes}.
+In order to be able to be able to place the pages remotely, a modification has to be made to the original distgen code, where the initialization is done by the master thread and the access is done only by the other thread, which is not the master. To determine whether the two threads are placed in the same NUMA node the environment variable \textit{GOMP\_CPU\_AFFINITY} is manipulated in order to determine the core in which the running threads will be placed. The availability of this modified two threads version is described in code listing 5 in Appendix \ref{app:coderes}.
 
 \begin{figure}
 	\centering
@@ -36,58 +36,60 @@ In order to be able to be able to place the pages remotely, a modification has t
 
 \begin{table}
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+		\begin{tabularx}{.9\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & Moveall after 45s & SPM \\
+			 & time(s) & time(s) & time(s) & time(s)  \\
 			\hline
-			400G & 61.470 & 102.573 & 85.375 & 80.221\\
+			400G & 61 & 102 & 85 & 80\\
 			\hline
-			600G & 91.382 & 154.340 & 124.067 & 134.695\\
+			600G & 91 & 154 & 124 & 134\\
 			\hline
-			800G & 125.757 & 215.269 & 200.078 & 187.817\\
+			800G & 125 & 215 & 200 & 187\\
 			\hline
-			1T & 151.291 & 260.406 & 198.249 & 202.729\\
+			1T & 151 & 260 & 198 & 202\\
 			\hline
 		\end{tabularx}
-		\caption{Execution time given in seconds of the different distgen scenarios in random mode.}
+		\caption{Execution time given in seconds of the different distgen scenarios in random mode with two running threads. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgentimrdm2t}
 \end{table}
 
 \begin{table}
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+		\begin{tabularx}{.9\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & Moveall after 45s & SPM \\
+			 & reads/s & reads/s & reads/s & reads/s  \\
 			\hline
-			400G & 1.12973E+08 & 6.77034E+07 & 1.00708E+08 & 9.68249E+07\\
+			400G & 1.12E+08 & 6.77E+07 & 1.01E+08 & 9.68E+07\\
 			\hline
-			600G & 1.13992E+08 & 6.74924E+07 & 8.24585E+07 & 9.35968E+07\\
+			600G & 1.13E+08 & 6.74E+07 & 8.24E+07 & 9.35E+07\\
 			\hline
-			800G & 1.10442E+08 & 6.45197E+07 & 7.36434E+07 & 7.10097E+07\\
+			800G & 1.10E+08 & 6.45E+07 & 7.36E+07 & 7.10E+07\\
 			\hline
-			1T & 1.14753E+08 & 6.66698E+07 & 8.85143E+07 & 9.39763E+07\\
+			1T & 1.14E+08 & 6.66E+07 & 8.85E+07 & 9.39E+07\\
 			\hline
 		\end{tabularx}
-		\caption{Execution throughput given in reads per second of the different distgen scenarios in random mode.}
+		\caption{Execution throughput given in reads per second of the different distgen scenarios in random mode. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgentrgrdm2t}
 \end{table}
 
 \begin{table}
 	\centering
-		\begin{tabularx}{.8\textwidth}{|l|l|X|}
+		\begin{tabularx}{.6\textwidth}{|l|l|X|}
 		\hline
 			Size & Moved pages & Moved pages \%  \\
 			\hline
-			400G & 422971 & 108.280576 \\
+			400G & 422971 & 108 \\
 			\hline
-			600G & 372289 & 63.53732267 \\
+			600G & 372289 & 63 \\
 			\hline
-			800G & 413297 & 52.902016 \\
+			800G & 413297 & 52 \\
 			\hline
-			1T & 423478 & 43.3641472 \\
+			1T & 423478 & 43 \\
 			\hline
 		\end{tabularx}
-		\caption{Number of pages moved by the SPM tool for the random distgen scenario with two remote threads.}
+		\caption{Number of pages moved by the SPM tool for the random distgen scenario with two threads. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgenmvdrdm2t}
 \end{table}
 
@@ -95,14 +97,14 @@ In order to be able to be able to place the pages remotely, a modification has t
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/time-dgentt-random.eps}
-		\caption{Normalized execution times for the different scenarios of distgen random with two threads.}
+		\caption{Normalized execution times for the different scenarios of distgen random with two threads shown in table \ref{table:res-dgentimrdm2t} relative to the vanilla case.}
 		\label{fig:res-dgentimrdm2t}
 \end{figure}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/thrput-dgentt-randm.eps}
-		\caption{Normalized execution throughput for the different scenarios of distgen random with two threads}
+		\caption{Normalized execution throughput for the different scenarios of distgen random with two threads shown in table \ref{table:res-dgentrgrdm2t} relative to the vanilla case.}
 		\label{fig:res-dgentrgrdm2t}
 \end{figure}
 
@@ -114,20 +116,21 @@ As for the performance of the SPM it can be seen from table \ref{table:res-dgenm
 
 \begin{table}[th]
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+		\begin{tabularx}{.9\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & SPM & Moveall after 45s  \\
+			 & time(s) & time(s) & time(s) & time(s)  \\
 			\hline
-			400G & 55.924 & 92.534  & 75.969 & 75.146\\
+			400G & 55 & 92  & 75 & 75\\
 			\hline
-			600G & 83.894 & 138.851 & 117.433 & 104.407 \\
+			600G & 83 & 138 & 117 & 104 \\
 			\hline
-			800G & 111.823 & 185.144 & 159.905 & 133.699 \\
+			800G & 111 & 185 & 159 & 133 \\
 			\hline
-			1T & 139.810 & 231.453 & 199.576 & 163.018 \\
+			1T & 139 & 231 & 199 & 163 \\
 			\hline
 		\end{tabularx}
-		\caption{Execution time for the different scenarios of the distgen sequential algorithm with units given in seconds.}
+		\caption{Execution time for the different scenarios of the distgen sequential algorithm with units given in seconds. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-tbl-dgentimseq2t}
 \end{table}
 
@@ -136,17 +139,18 @@ As for the performance of the SPM it can be seen from table \ref{table:res-dgenm
 		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & Moveall after 45s & SPM \\
+			 & reads/s & reads/s & reads/s & reads/s  \\
 			\hline
-			400G & 2.48368E+08 & 1.50106E+08 & 2.37636E+08& 2.37768E+08\\
+			400G & 2.48E+08 & 1.50E+08 & 2.37E+08& 2.37E+08\\
 			\hline
-			600G & 2.48350E+08 & 1.50048E+08  & 2.37708E+08 & 1.96037E+08\\
+			600G & 2.48E+08 & 1.50E+08  & 2.37E+08 & 1.96E+08\\
 			\hline
-			800G & 2.48409E+08 & 1.50039E+08 & 2.37704E+08 & 1.86950E+08 \\
+			800G & 2.48E+08 & 1.50E+08 & 2.37E+08 & 1.86E+08 \\
 			\hline
-			1T & 2.48352E+08 & 1.50023E+08 & 2.37542E+08 & 1.48624E+08 \\
+			1T & 2.48E+08 & 1.50E+08 & 2.37E+08 & 1.48E+08 \\
 			\hline
 		\end{tabularx}
-		\caption{Execution throughput for the different scenarios of the distgen sequential algorithm with units given in reads per second.}
+		\caption{Execution throughput for the different scenarios of the distgen sequential algorithm with units given in reads per second. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgentrgseq2t}
 \end{table}
 
@@ -156,118 +160,115 @@ As for the performance of the SPM it can be seen from table \ref{table:res-dgenm
 		\hline
 			Size & Moved pages & Moved pages \%  \\
 			\hline
-			400G & 232777 & 59.590912 \\
+			400G & 232777 & 59.5 \\
 			\hline
-			600G & 234551 & 40.03003733\\
+			600G & 234551 & 40.0\\
 			\hline
-			800G & 226748 & 29.023744 \\
+			800G & 226748 & 29.0 \\
 			\hline
-			1T & 233191 & 23.8787584 \\
+			1T & 233191 & 23.9 \\
 			\hline
 		\end{tabularx}
-		\caption{Number of pages moved in the distgen sequential scenario.}
+		\caption{Number of pages moved by spm in the distgen sequential scenario with two threads. Sampling period 100 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgenmvdseq2t}
 \end{table}
 
 \begin{figure}
 	\centering
-		\includegraphics[width=.8\textwidth]{figures/time-dgentt-ser.eps}
-		\caption{Normalized execution speed for the different scenarios of  distgen sequential with two threads with respect to the vanilla local scenario}
+		\includegraphics[width=.7\textwidth]{figures/time-dgentt-ser.eps}
+		\caption{Normalized execution speed for the different scenarios of  distgen sequential with two threads with respect to the vanilla local scenario shown in table \ref{table:res-tbl-dgentimseq2t}.}
 		\label{fig:res-dgentimseq2t}
 \end{figure}
 
 \begin{figure}
 	\centering
-		\includegraphics[width=.8\textwidth]{figures/thrput-dgentt-ser.eps}
-		\caption{Normalized execution throughput for the different scenarios of the distgen sequential with two threads with respect to the vanilla local scenario.}
+		\includegraphics[width=.7\textwidth]{figures/thrput-dgentt-ser.eps}
+		\caption{Normalized execution throughput for the different scenarios of the distgen sequential with two threads with respect to the vanilla local scenario shown in table \ref{table:res-dgentrgseq2t}.}
 		\label{fig:res-dgentrgseq2t}
 \end{figure}
 
 
-In this opportunity the serial version of distgen is run. Because of the faster running time of this algorithm, the number of iterations is doubled to 2000 to obtain a long enough execution time that allows to observe the influence of SPM. Tables \ref{table:res-tbl-dgentimseq2t} and \ref{fig:res-dgentrgseq2t} show the execution time and performance results and Figures \ref{fig:res-dgentimseq2t} and \ref{fig:res-dgentrgseq2t} show the normalized values with respect to distgen vanilla. In comparison to the serial version the performance of the SPM tool is not as good and only matches that of the moveall scenario in with the smallest size. Part of this slowdown can be explained by the smaller portion of pages that the tool is getting, as shown in table \ref{table:res-dgenmvdseq2t}.
+In this opportunity the serial version of distgen is run. Because of the faster running time of this algorithm, the number of iterations is doubled to 2000 to obtain a long enough execution time that allows to observe the influence of SPM. Tables \ref{table:res-tbl-dgentimseq2t} and \ref{table:res-dgentrgseq2t} show the execution time and performance results and Figures \ref{fig:res-dgentimseq2t} and \ref{fig:res-dgentrgseq2t} show the normalized values with respect to distgen vanilla. In comparison to the serial version the performance of the SPM tool is not as good and only matches that of the moveall scenario with the smallest size. Part of this slowdown can be explained by the smaller portion of pages that the tool is getting, as shown in table \ref{table:res-dgenmvdseq2t}.
 
 \subsection{SPM and Distgen with all Threads Employed}\label{subsection:res-spmydistgen-at}
 
 The scenarios used here follow the same logic as what was shown in the previous section, but now the goal is to go further and try a contention scenario where more cores are running the algorithm. For this test all the cores except two were used, one of the remaining ones is used to run SPM. In the remote cases, every core is mapped to a core in the opposed NUMA node and the data will be allocated in this remote node.
 
-\subsubsection{Performance for the Random Mode}\label{subsection:time-dgenat-random.eps}
+Table \ref{table:res-dgentimrdmat} shows the run times for the scenarios under the random case and figure \ref{fig:time-dgenatt-ser} shows the normalized results. These results show that the performance of the tool locate very close to the best possible. Table \ref{table:res-tbl-dgenmvdrdmat} confirms that a good coverage of the computing domain was reached. The random cases were run with 2000 iterations.
 
-Table \ref{table:res-dgentimrdmat} shows the run times for the scenarios under this case and figure \ref{fig:time-dgenatt-ser} shows the normalized results. These results show that the performance of the tool locate very close to the best possible. Table \ref{table:res-tbl-dgenmvdrdmat} confirms that a good coverage of the computing domain was reached.
-
-Table \ref{table:res-dgentimserat} shows the completion time information and figure \ref{fig:time-dgenatt-ser} shows these quantities normalized. Unlike the random case the improvement is not so good, locating itself between the worst and possible cases. Table \ref{table:res-tbl-dgenmvdseqat} could point to a possible cause to be the lowest coverage of the computing domain obtained.
+For the sequential case table \ref{table:res-dgentimserat} shows the completion time information, having in mind that the number of iterations is 4000 and figure \ref{fig:time-dgenatt-ser} shows these quantities normalized. Unlike the random case the improvement is not so good, locating itself between the worst and possible cases. Table \ref{table:res-tbl-dgenmvdseqat} could point to a possible cause to be the lowest coverage of the computing domain obtained.
 
 \begin{table}[th]
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+		\begin{tabularx}{.9\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & Moveall after 45s & SPM \\
+			 & time(s) & time(s) & time(s) & time(s)  \\
 			\hline
-			90G & 83.51 & 196.688 & 152.959 & 155.405\\
+			90G & 83 & 196 & 152 & 155\\
 			\hline
-			110G & 103.617 & 242.471 & 184.673 & 191.259\\
+			110G & 103 & 242 & 184 & 191\\
 			\hline
-			130G & 129.617 & 282.619 &194.029 & 210.215\\
+			130G & 129 & 282 &194 & 210\\
 			\hline
-			150G & 141.588 & 329.403 & 260.219 & 254.283\\
+			150G & 141 & 329 & 260 & 254\\
 			\hline
 		\end{tabularx}
-		\caption{Completion time in seconds for the random distgen with 30 threads employed}
+		\caption{Completion time in seconds for the random distgen with 30 threads employed. Sampling period 10 instructions/sample, 1000 iterations and minimum weight threshold 150.}
 		\label{table:res-dgentimrdmat}
 \end{table}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/time-dgenat-random.eps}
-		\caption{Normalized execution time for the random distgen cases with 30 threads employed.}
+		\caption{Normalized execution time for the random distgen cases with 30 threads employed shown in table \ref{table:res-dgentimrdmat}.}
 		\label{fig:res-dgentimrdmat}
 \end{figure}
 
 
-
-\subsubsection{Performance for the Sequential Mode}\label{subsection:time-dgenat-seq.eps}
-
 \begin{table}[th]
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+		\begin{tabularx}{.9\textwidth}{|l|l|l|l|X|}
 		\hline
 			Size & Vanilla local & Vanilla Remote & Moveall after 45s & SPM \\
+			& time(s) & time(s) & time(s) & time(s)  \\
 			\hline
-			90G & 127.763 & 341.35 & 152.959 & 262.535\\
+			90G & 127 & 341 & 152 & 262\\
 			\hline
-			110G & 156.145 & 417.683 & 184.673 & 331.794\\
+			110G & 156 & 417& 184 & 331\\
 			\hline
-			130G & 184.482 & 493.134 & 194.029 & 395.134\\
+			130G & 184 & 493 & 194 & 395\\
 			\hline
-			150G & 212.992 & 569.438 & 260.219 & 465.617\\
+			150G & 212 & 569 & 260 & 465\\
 			\hline
 		\end{tabularx}
-		\caption{Normalized execution time for the sequential distgen cases with 30 threads employed.}
+		\caption{Execution time for the sequential distgen cases with 30 threads employed and 4500 iterations. Sampling period 10 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-dgentimserat}
 \end{table}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/time-dgenatt-ser.eps}
-		\caption{Normalized execution time for the sequential distgen cases with 30 threads employed.}
+		\caption{Normalized execution time for the sequential distgen cases with 30 threads employed shown in table \ref{table:res-dgentimserat}.}
 		\label{fig:time-dgenatt-ser}
 \end{figure}
 
 \begin{table}[th]
 	\centering
-		\begin{tabularx}{.6\textwidth}{|c|c|c|}
+		\begin{tabularx}{.6\textwidth}{|l|l|X|}
 		\hline
 			Size & Moved pages & Moved pages \%  \\
 			\hline
-			90G & 4438270 & 84.16274963 \\
+			90G & 4438270 & 84 \\
 			\hline
-			110G & 4556914 & 54.38554704 \\
+			110G & 4556914 & 54\\
 			\hline
-			130G & 3526065 & 46.29090462 \\
+			130G & 3526065 & 46 \\
 			\hline
-			150 & 4647763 & 52.88121458 \\
+			150 & 4647763 & 52\\
 			\hline
 		\end{tabularx}
-		\caption{Number of moved pages by the SPM tool for the distgen random case with 30 active threads.}
+		\caption{Number of moved pages by the SPM tool for the distgen random case with 30 active threads. Sampling period 10 instructions/sample and minimum weight threshold 150.}
 		\label{table:res-tbl-dgenmvdrdmat}
 \end{table}
 
@@ -278,148 +279,115 @@ Table \ref{table:res-dgentimserat} shows the completion time information and fig
 		\hline
 			Size & Moved pages & Moved pages \%  \\
 			\hline
-			90G & 770653 & 13.70049778 \\
+			90G & 770653 & 13.700 \\
 			\hline
-			110G & 809007 & 11.76737455 \\
+			110G & 809007 & 11.767 \\
 			\hline
-			130G & 809901 & 9.96801230 \\
+			130G & 809901 & 9.968 \\
 			\hline
-			150 & 853033 & 9.099018667 \\
+			150 & 853033 & 9.099\\
 			\hline
 		\end{tabularx}
-		\caption{Number of moved pages by the SPM tool for the distgen sequential case with all threads engaged.}
+		\caption{Number of moved pages by the SPM tool for the distgen sequential case with 30 threads shown in table \ref{table:res-dgentimserat}. Sampling period 10 instructions/sample and minimum weight threshold 150}
 		\label{table:res-tbl-dgenmvdseqat}
 \end{table}
 \FloatBarrier
 \subsubsection{Measuring the Effect of SPM's Action}\label{subsection:time-dgenat-action.eps}
 
+A more detailed way to appreciate the improvements in performance of the SPM is to look at the information provided by the performance readings: the first one is the average number of executed instructions, which is shown in figure \ref{fig:at-spmactn-thgput} as a function of time. After the end of the observation period there are more instructions executed. 
+
+The second way to verify the action of SPM is to look at the performances average values of local and remote memory traffic, which are shown in figure \ref{fig:at-spmactn-trsfer}. After the end of the observation phase, the local traffic increases and the remote decreases working in favor of a more efficient execution of the observed algorithm.
+
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/at-thrput-random.eps}
-		\caption{View of the average throughput during the execution of distgen under SPM supervision in the distgen SPM case with 30 active threads and a domain of size 110G. The page migration is done at time 45.}
+		\caption{View of the average throughput during the execution of distgen under SPM supervision in the distgen SPM case with 30 active threads and a domain of size 110G. The page migration is done at time 45 with a minimum weight threshold of 150.}
 		\label{fig:at-spmactn-thgput}
 \end{figure}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/at-transfer-random.eps}
-		\caption{View of the average and local and remote transfer rates during the execution of distgen under SPM supervision in the distgen SPM case with 30 active threads and a domain of size 110G. The page migration is done at time 45.}
+		\caption{View of the average and local and remote transfer rates during the execution of distgen under SPM supervision in the distgen SPM case with 30 active threads and a domain of size 110G. The page migration is done at time 45 with a minimum weight threshold of 150.}
 		\label{fig:at-spmactn-trsfer}
 \end{figure}
 
-A more detailed way to appreciate the improvements in performance of the SPM is to look at the information provided by the performance readings: the first one is the average number of executed instructions, which is shown in figure \ref{fig:at-spmactn-thgput} as a function of time. After the end of the observation period there are more instructions executed. 
-
-The second way to verify the action of SPM is to look at the performances average values of local and remote memory traffic, which are shown in figure \ref{fig:at-spmactn-trsfer}. After the end of the observation phase, the local traffic increases and the remote decreases working in favor of a more efficient execution of the observed algorithm.
 
 \section{SPM and LAMA-CG}\label{section:spmylamacg}
 
-For the execution of LAMA-CG a contention situation with 30 threads will be used to test the action of SPM, leaving one for the execution of the SPM tool. This time the source code of the observed algorithm will not be modified, but in order to create a situation with many remote accesses involved, the re-pinning of the threads was be induced 15 seconds after starting the algorithm in such a way that every thread was reallocated to a core located in the opposite NUMA node and then SPM was started as usual.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.7\textwidth]{figures/lam3k.eps}
+		\caption{Completion time for different combinations of period and sample time for LAMA-CG with a square matrix with side 3000 and minimum weight threshold of 150.}
+		\label{fig:res-lamatim-3k}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.7\textwidth]{figures/lam3k750.eps}
+		\caption{Completion time for different combinations of period and sample time for LAMA-CG with a square matrix with side 3750 and minimum weight threshold of 150.}
+		\label{fig:res-lamatim-3k45}
+\end{figure}
+
+For the execution of LAMA-CG a contention situation with 30 threads will be used to test the action of SPM, leaving one for the execution of the SPM tool. This time the source code of the observed algorithm will not be modified, but in order to create a situation with many remote accesses involved, the re-pinning of the threads was induced 15 seconds after starting the algorithm in such a way that every thread was reallocated to a core located in the opposite NUMA node and then SPM was started as usual.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.7\textwidth]{figures/lam4k.eps}
+		\caption{Completion time for different combinations of period and sample time for LAMA-CG with a square matrix with side 4500 and minimum weight threshold of 150.}
+		\label{fig:res-lamatim-4k}
+\end{figure}
 
 For the study of LAMA-CG under SPM a variation of parameters was done by trying sampling periods of 10, 20 and 50 instructions per sample and observation phase times of 60 and 120 seconds. Three domain sizes were used, which were square matrices of length 3000, 3750 and 4500.
 
 
-\begin{table}
+\begin{figure}[th]
 	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|l|X|}
-		\hline
-			Size & Original & Flipped & Flipped SPM & Flipped SPM  & Flipped SPM \\
-			 &  &  no-SPM & c=10  &c=20 &c=50\\
-			\hline
-			3000 & 166 & 250 & 189 & 221 & 233\\
-			\hline
-			3750 & 308 & 509 & 350 & 443 & 465\\
-			\hline
-			4500 & 532 & 915 & 577 & 750 & 770\\
-			\hline
-		\end{tabularx}
-		\caption{Run times for the Lama-cg scenarios with a measurement time of 60 seconds}
-		\label{table:lamatim60}
-\end{table}
-
-\begin{table}
-	\centering
-		\begin{tabularx}{\textwidth}{|l|l|l|l|l|X|}
-		\hline
-			Size & Original & Flipped & Flipped SPM & Flipped SPM  & Flipped SPM \\
-			 &  &  no-SPM & c=10  &c=20 &c=50\\
-			\hline
-			3000 & 166 & 250 & 234 & 228 & 237\\
-			\hline
-			3750 & 308 & 509 & 465 & 484 & 481\\
-			\hline
-			4500 & 532 & 915 & 746 & 824 & 823\\
-			\hline
-		\end{tabularx}
-		\caption{Run times for the Lama-cg scenarios with a measurement time of 120 seconds}
-		\label{table:lamatim120}
-\end{table}
-\begin{figure}
-	\centering
-		\includegraphics[width=.8\textwidth]{figures/lama-thrput.eps}
-		\caption{Average executed instructions as a function of time for the executions of LAMA-CG with measurement time of 60 seconds and matrix size of 3750.}
+		\includegraphics[width=.7\textwidth]{figures/lama-thrput.eps}
+		\caption{Average executed instructions as a function of time for the executions of LAMA-CG with measurement time of 60 seconds, matrix size of 3750 and minimum weight threshold of 150.}
 		\label{fig:res-lamatrg}
 \end{figure}
 
 \begin{figure}[t]
 	\centering
-		\includegraphics[width=\textwidth]{figures/lama-localtr.eps}
-		\caption{Average local memory traffic as a function of time for the executions of LAMA-CG with measurement time of 60 seconds and matrix size of 3750.}
+		\includegraphics[width=.8\textwidth]{figures/lama-localtr.eps}
+		\caption{Average local memory traffic as a function of time for the executions of LAMA-CG with measurement time of 60 seconds, matrix size of 3750 and minimum weight threshold of 150.}
 		\label{fig:res-lamaloctr}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[t]
 	\centering
-		\includegraphics[width=\textwidth]{figures/lama-remotetr.eps}
-		\caption{Average remote memory traffic as a function of time for the executions of LAMA-CG with measurement time of 60 seconds and matrix size of 3750.}
+		\includegraphics[width=.8\textwidth]{figures/lama-remotetr.eps}
+		\caption{Average remote memory traffic as a function of time for the executions of LAMA-CG with measurement time of 60 seconds and matrix size of 3750 and minimum weight threshold of 150..}
 		\label{fig:res-lamaremotr}
-\end{figure}[th]
-Tables \ref{table:lamatim60} and \ref{table:lamatim120} show the run time results for the different scenarios described above. The results show that the best times are obtained with the lowest period of 10 instructions per sample. The biggest observation time was only best for the biggest size.
+\end{figure}
 
-Figure \ref{fig:res-lamatrg} shows the throughput readings for the different scenarios of the matrix with size 3750 and observation time of 60 seconds: the original version is the best case with the highest throughput and the flipped version is the worst case because a lot of remote accesses are performed. The other three cases show the intervention of the SPM tool after 60 seconds of re-pinning the threads. The readings for local memory and remote memory transfers are shown in figures \ref{fig:res-lamatrg} and \ref{fig:res-lamatrg} respectively.
+Figures \ref{fig:res-lamatim-3k}, \ref{fig:res-lamatim-3k45} and \ref{fig:res-lamatim-4k} show the run time results for the different scenarios described above. The results show that the best times are obtained with the lowest period of 10 instructions per sample. The biggest observation time was only best for the biggest size.
+
+Figure \ref{fig:res-lamatrg} shows the throughput readings for the different scenarios of the matrix with size 3750 and observation time of 60 seconds: the original version is the best case with the highest throughput and the flipped version is the worst case because a lot of remote accesses are performed. The other three cases show the intervention of the SPM tool after 60 seconds of re-pinning the threads. The readings for local memory and remote memory transfers are shown in figures \ref{fig:res-lamaloctr}, and \ref{fig:res-lamaremotr} respectively.
+
 \section{Co-location and Statistical Significance}\label{section:resssigni}
 
-\begin{table}
+\begin{figure}
 	\centering
-		\begin{tabularx}{.7\textwidth}{|l|l|X|}
-		\hline
-			Threshold & Completion Time & Moved pages  \\
-			\hline
-			1 & 172.898 & 7188864 \\
-			\hline
-			10 & 172.005 & 7065049 \\
-			\hline
-			20 & 225.623 & 3515954 \\
-			\hline
-			30 & 263.896 & 1198338 \\
-			\hline
-		\end{tabularx}
-		\caption{Results for running distgen random with different minimum page access frequency thresholds}
-		\label{table:res-dgenfreqrdm}
-\end{table}
+		\includegraphics[width=.8\textwidth]{figures/signi-ran.eps}
+		\caption{Results for running the distquen random with array size 110G with 30 threads active with sampling period 10 instructions/sample and minimum weight filter of 150. The number of iterations for the random case is 2000 and for the sequential 4000. The left side shows the completion time and the right one shows the number of moved pages for different page access threshold}
+		\label{fig:res-signiran}
+\end{figure}
 
 
-\begin{table}
+\begin{figure}
 	\centering
-		\begin{tabularx}{.7\textwidth}{|l|l|X|}
-		\hline
-			Threshold & Completion Time & Moved pages  \\
-			\hline
-			1 & 291.698 & 1198338 \\
-			\hline
-			10 & 322.179 & 1094638 \\
-			\hline
-			20 & 415.809 & 812437 \\
-			\hline
-			30 & 448.589 & 609689 \\
-			\hline
-		\end{tabularx}
-		\caption{Results for running distgen sequential with different minimum page access frequency thresholds}
-		\label{table:res-dgenfreqseq}
-\end{table}
+		\includegraphics[width=.8\textwidth]{figures/signi-seq.eps}
+		\caption{Results for running the distquen serial with array size 110G with 30 threads active with sampling period 10 instructions/sample and minimum weight filter of 150. The left side shows the completion time and the right one shows the number of moved pages for different page access threshold}
+		\label{fig:res-signiseq}
+\end{figure}
+
 
 So far the results shown for SPM have been applied for a co-location, which considers the node with the highest number of page accesses the home of the node, and the page will be migrated even if it is only accessed once by the node thought to be the home of the page. But the question which this choice raises is whether one page access is significant enough to be allocated to a given node and many times a higher value would be desired to make the home allocation decision of the pages in question. 
 
-SPM incorporates the option of applying a frequency threshold which specifies the number of page accesses after a node is considered to be the home of a page. Usually every algorithm has a predominant number of times a page is accessed. For the random version of distgen this number lies between 11 and 40 and for the sequential between 3 and 8. Using the page access frequency filter the algorithms were run and the results are given in tables \ref{table:res-dgenfreqrdm} and \ref{table:res-dgenfreqseq}. For the random version of distgen, it can be seen that the filter value of 10 does not affect the completion time in a great manner, but for a value of 20 the number of captured pages drops to approximately half. In the sequential case a filter of five decreases the number of captured pages in 9% and the run time is increased in 10%. For a threshold value of 10 the number of moved pages already decreases 37%.
+SPM incorporates the option of applying a frequency threshold which specifies the number of page accesses after a node is considered to be the home of a page. Usually every algorithm has a predominant number of times a page is accessed. For the random version of distgen this number lies between 11 and 40 and for the sequential between 3 and 8. Using the page access frequency filter the algorithms were run and the results are given in figures \ref{fig:res-signiran} and \ref{fig:res-signiseq}. For the random version of distgen, it can be seen that the filter value of 10 does not affect the completion time in a great manner, but for a value of 20 the number of captured pages drops to approximately half. In the sequential case a filter of five decreases the number of captured pages in 9\% and the run time is increased in 10\%. For a threshold value of 10 the number of moved pages already decreases 37\%.
 The previous information leads to state that increasing the page access threshold helps be more certain of the move page decision, but it must be tuned carefully to the executed algorithm in order to avoid reducing significantly the number of moved pages
 
 \section{Contention Analysis}\label{section:rescont}
@@ -457,19 +425,14 @@ The previous information leads to state that increasing the page access threshol
 			$>$10 & 6899 \\
 			\hline
 		\end{tabularx}
-		\caption{Number of home switches for a run of LAMA-CG}
+		\caption{Number of home switches for a run of LAMA-CG run with a sampling period of 10 instructions per sample, minimum weight filter of 150 and matrix size of 3750.}
 		\label{table:res-dgencontent}
 \end{table}
 
-In SPM the ability to detect the contention for a page between nodes was implemented. Every time SPM receives a sample concerning a given page, it will store which node was the last one to access it. Whenever a page is accessed by a node other than the one that last accessed it, a situation called a home switch occurs. For the versions of distgen it was found that the number of page switches is very small with 0 home switches being the dominant frequency, for values of one page switch the number of pages is less than the 10 percent of the frequency for 0 switches and for values greater than 2 this number is negligible. This means that the versions of distgen are very well localized and incur in very small contention. For LAMA-CG there is a greater amount of contention as shown in table \ref{table:res-dgenfreqseq}, but still the frequencies for values greater than 0 are significantly smaller.
-
+In SPM the ability to detect the contention for a page between nodes was implemented. Every time SPM receives a sample concerning a given page, it will store which node was the last one to access it. Whenever a page is accessed by a node other than the one that last accessed it, a situation called a home switch occurs. For the versions of distgen it was found that the number of page switches is very small with 0 home switches being the dominant frequency, for values of one page switch the number of pages is less than the 10 percent of the frequency for 0 switches and for values greater than 2 this number is negligible. This means that the versions of distgen are very well localized and incur in very small contention. For LAMA-CG there is a greater amount of contention as shown in table \ref{table:res-dgencontent}, but still the frequencies for values greater than 0 are significantly smaller.
+\FloatBarrier
 \section{Results discussion}\label{section:resdiscussion}
-The obtained results point to an important dependence between the number of obtained samples and both the sampling frequency and the observation phase time, but also the nature of the algorithm plays an important role. For the distgen scenarios, the best performance was obtained by the random scenarios obtaining a better coverage of the memory space than the sequential version. LAMA-CG also appears to show a sequential like behavior. The reduced number of obtained samples under the sequential scenarios appears to present itself because of the sampling system not capturing the prefetcher which is so frequently present in the sequential memory access patterns. For the length of the observation period the tool is more successful for more iterations over a smaller space than for less iteration over a larger space. This happens because the probability of sampling a given page increases in the first case. 
-The choice of the sampling period is crucial, and for most of the runs in these document the greatest number of samples was obtained for a period of 10 instructions per sample. Less than that value fewer samples were obtained. The tool does better when it gets allocated its own thread, because when the observed algorithm runs on all the threads two bad effects happen: first the observed algorithm must compete with SPM which means that one core will not reach full throughput when the others will, and during the page migration phase SPM will need to get the most of a core performance. The other is that because of the reduce performance SPM will be able to process less samples, which means that less candidate samples for the migration will be produced.
+The obtained results point to an important dependence between the number of obtained samples and both the sampling frequency and the observation phase time, but also the nature of the algorithm plays an important role. For the distgen scenarios, the best performance was obtained by the random scenarios obtaining a better coverage of the memory space than the sequential version. LAMA-CG also appears to show a sequential like behavior. The reduced number of obtained samples under the sequential scenarios appears to present itself because of the sampling system not capturing the prefetcher induced traffic, which is so frequently present in the sequential memory access patterns. For the length of the observation period the tool is more successful for more iterations over a smaller space than for less iterations over a larger space. This happens because the probability of sampling a given page increases in the first case. 
 
-\subsection{Questions Left and Possibilities of Future Work}\label{subsection:resfutwork}
+The choice of the sampling period is crucial, and for most of the runs in these document the greatest number of samples was obtained for a period of 10 instructions per sample. Less than that value fewer samples were obtained. The tool does better when it gets allocated its own thread, because when the observed algorithm runs on all the threads two bad effects happen: first the observed algorithm must compete with SPM which means that one core will not reach full throughput when the others will, and during the page migration phase SPM will need to get the most of a core performance. The other is that because of the reduced, performance SPM will be able to process less samples, which means that less candidate samples for the migration will be produced.
 
-
-A good next step would go in the direction of characterizing SPMs performance and search for any room for possible improvement. The page migration phase takes a long amount of time and the time require to migrate the chunks of two hundred pages was longer than the one obtained in the characterization done in section \ref{subsection:pmu-movpatime}: while the characterization showed an average time of maximum 0.35 seconds in the contention scenario in the full core SPM runs these times were between 1.5 and 4 seconds. 
-The contention analysis also shows that the algorithms tested showed very good localization properties which means there was low contention for pages, it good be appropriate to test the tool with algorithms of grater contention in order to see how it reacts to this situation.
-Unfortunately due to time constraints out of the strategies pointed in section \ref{section:placement strats} only co-location could be tested. The test with more strategies would lead to a more comprehensive tool.

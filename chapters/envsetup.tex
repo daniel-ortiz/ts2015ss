@@ -71,36 +71,35 @@ Figure \ref{fig:pmu-obtainedsamp} shows how the number of samples taken reacts t
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/pagetouch-dgenrdm.eps}
-		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the distgen-random algorithm.}
+		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the distgen-random algorithm. Period 10 instructions/sample and measure time 60 seconds.}
 		\label{fig:pmu-concentsamp-dgenrdm}
 \end{figure}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/pagetouch-dgenser.eps}
-		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the distgen-sequential algorithm.}
+		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the distgen-sequential algorithm. Period 10 instructions/sample and measure time 60 seconds.}
 		\label{fig:pmu-concentsamp-dgenser}
 \end{figure}
 
 \begin{figure}[th]
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/pagetouch-dgenrdm.eps}
-		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the LAMA-CG.}
+		\caption{Frequency of page accesses: Percentage of pages that were accessed a given number of times during a run of the LAMA-CG algorithm. Period 10 instructions/sample and measure time 60 seconds.}
 		\label{fig:pmu-concentsamp-dgenlama}
 \end{figure}
 
 
-Knowing how many times a given page is accessed is very important because in the co-location policy it is necessary to set a threshold of page accesses, for which a page can be judged to belong to a certain home node. Figures \ref{fig:pmu-concentsamp-dgenrdm},\ref{fig:pmu-concentsamp-dgenrdm} and \ref{fig:pmu-concentsamp-dgenrdm} show this information for the distgen-random, distgen-sequential and LAMA-CG respectively. Every bar represents a different value of minimum weight threshold and every color represents the relative percentages of samples that were accessed within the given frequency access interval. It is very important to point out that the number of pages accesses with zero frequency, which are those not accessed by the tool are not depicted. Currently the algorithm has no way of knowing this information and the way to do it is to subtract the total number of pages used by the program memory space from the sum of the total of number pages captured. The number of pages not captured can amount to a significant portion depending on how the sampling is configured.
-Every algorithm has its distinctive page access pattern: Distgen sequential has a dominant portion of accesses between 4 and 15 times, distgen-random has a significant portion between 11 and 50 and LAMA-CG has a significant portion of accesses for values as high as 60. Section XYZ presents the results of varying the threshold of page accesses for which a page is identified to belong to a certain node.
+Knowing how many times a given page is accessed is very important because in the co-location policy it is necessary to set a threshold of page accesses, for which a page can be judged to belong to a certain home node. Figures \ref{fig:pmu-concentsamp-dgenrdm}, \ref{fig:pmu-concentsamp-dgenser} and \ref{fig:pmu-concentsamp-dgenlama} show this information for the distgen-random, distgen-sequential and LAMA-CG respectively. Every bar represents a different value of minimum weight threshold and every color represents the relative percentages of samples that were accessed within the given frequency access interval. It is very important to point out that the number of pages accesses with zero frequency, which are those not accessed by the tool are not depicted. Currently the algorithm has no way of knowing this information and the way to do it is to subtract the total number of pages used by the program memory space from the sum of the total of number pages captured. The number of pages not captured can amount to a significant portion depending on how the sampling is configured.
 
-
+Every algorithm has its distinctive page access pattern: Distgen sequential has a dominant portion of accesses between 4 and 15 times, distgen-random has a significant portion between 11 and 50 and LAMA-CG has a significant portion of accesses for values as high as 60. Section \ref{section:resssigni} presents the results of varying the threshold of page accesses for which a page is identified to belong to a certain node.
 
 \subsection{Completion Time of the Move Pages Call}\label{subsection:pmu-movpatime}
 
 
 The \textit{move\_pages} directive plays a very important role in the SPM tool because it provides the means to reallocate one page from one node to another, as well as querying in which node a given page, or pages reside in. Figure \ref{fig:mov-pages-time.eps} shows the behavior of such call as function of the number of pages to move. Two scenarios are measured: the first one is the relocation of the pages in conditions of such process running exclusively on the system, and the other is the same relocation together with a distgen process using all the cores, which represents a congestion scenario. It can be seen that for a small number of pages this behavior is almost lineal, but it has an inflection point where the function completion time tends to show a smaller growth with increasing move set size. For the congestion scenario, the function takes longer to complete. In more elaborate scenarios as the ones shown here, the function could take longer to complete, figures in the order of four seconds were measured with scenarios of moving pages in multiple directions with move sizes of 200 thousand samples.
 
-\begin{figure}[th]  
+\begin{figure}  
 	\centering
 		\includegraphics[width=.8\textwidth]{figures/mov-pages-time.eps}
 		\caption{Completion times for the move pages call for different page count under contention and no load scenarios for the distgen-random scenario.}
